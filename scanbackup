@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-echo Enter username or domain name
+echo Enter username or domain name         #Input
 read username
 ui $username | grep "Doc Root" | cut -d":" -f2 > docrot.txt
 echo "Checking for common malicious files for $username in all backup"
