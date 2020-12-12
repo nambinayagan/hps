@@ -4,7 +4,7 @@ echo Enter username or domain name         #Input
 read username
 ui $username | grep "Doc Root" | cut -d":" -f2 > docrot.txt
 isuser=$( cat docrot.txt | wc -l )
-if [ "$isuser" -eq 0 ];                                                           #if [ -f "$mytext3" ];
+if [ "$isuser" -eq 0 ];                                                           #To check if user exist
 then
 echo "Try again"
 return
@@ -12,9 +12,9 @@ fi
 echo "Checking for common malicious files for $username in all backup"
 echo -e " \n"
 echo "#######################################################################################"
-var=$( cat docrot.txt )
-docurt="${var%/public_html*}"
-mytext2="${var%public_html*}malware.txt"
+var=$( cat docrot.txt )                                   #Var is home directory
+docurt="${var%/public_html*}"                             #Docurt is docuement root
+mytext2="${var%public_html*}malware.txt"                              #To create the complete malware file directorty
 echo $mytext2 > ding.txt
 mytext3=$( cat ding.txt )
 mytext4=$( cat $mytext3 | grep $username | wc -l )
