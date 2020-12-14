@@ -1,7 +1,7 @@
 #!/bin/bash
 ###################              Author: Nambinayagan                 ################
 SECONDS=0
-echo Enter username or domain name         #Input
+echo Enter username of the cPanel account         #Input
 read username
 mkdir -p /root/scanbkscript/$username
 ui $username | grep "Doc Root" | cut -d":" -f2 > /root/scanbkscript/$username/docrot.txt
@@ -33,7 +33,7 @@ rm -f /root/scanbkscript/$username/malware_new2.txt 2> /dev/null
 #echo "$mytext3 file exist and has more than 100 malicious files in it. So exiting"
 #return
 #fi
-if [ "$mytext4" -gt 0 ];                                                           #if [ -f "$mytext3" ];
+if [ "$mytext4" -gt 0 ];
 then
 echo "$mytext3 file exist and has $mytext4 malware files"
 echo -e " \n"
