@@ -85,9 +85,10 @@ fi
 duration=$SECONDS
 red=`tput setaf 1`
 green=`tput setaf 2`
-echo "The script took${green} $(($duration / 60)) minutes and $(($duration % 60)) ${reset}seconds to check the presence of $mytext4 infected file in backup"
+echo "The script took${green} $(($duration / 60)) minutes and $(($duration % 60)) seconds${reset} to check the presence of $mytext4 infected file in backup"
 
 echo "#######################################################################################"
 
 echo "${red}Note: The script only checks if the files listed in malware.txt. So a infected file which is not listed in malware.txt will not be detected by the script${reset}"
+echo -e "\e[3;4;33m${red}It is always recommended to inform the customer to get their website code checked with a professional website security expert as the same vulnerabilities that were exploited to hack the website might be present in the backup.${reset}\n\e[0m"
 echo "#######################################################################################"
