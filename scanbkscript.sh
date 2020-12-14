@@ -4,8 +4,8 @@ SECONDS=0
 echo Enter username of the cPanel account         #Input
 read username
 mkdir -p /root/scanbkscript/$username
-ui $username | grep "Doc Root" | cut -d":" -f2 > /root/scanbkscript/$username/docrot.txt
-isuser=$( cat /root/scanbkscript/$username/docrot.txt | wc -l )
+ui $username | grep "Doc Root" | cut -d":" -f2 > /root/scanbkscript/$username/docroot.txt
+isuser=$( cat /root/scanbkscript/$username/docroot.txt | wc -l )
 if [ "$isuser" -eq 0 ];                                                           #if [ -f "$mytext3" ];
 then
 echo "Try again"
@@ -15,19 +15,20 @@ mkdir -p /root/scanbkscript/$username
 echo "Checking for common malicious files for $username in all backup"
 echo -e " \n"
 echo "#######################################################################################"
-var=$( cat /root/scanbkscript/$username/docrot.txt )
+var=$( cat /root/scanbkscript/$username/docroot.txt )
 docurt="${var%/public_html*}"
 mytext2="${var%public_html*}malware.txt"
 echo $mytext2 > /root/scanbkscript/$username/ding.txt
 mytext3=$( cat /root/scanbkscript/$username/ding.txt )
 mytext4=$( cat $mytext3 | grep $username | wc -l )
 rm -f /root/scanbkscript/$username/nex3.txt 2> /dev/null
-rm -f /root/scanbkscript/$username/docrot.txt 2> /dev/null
+rm -f /root/scanbkscript/$username/docroot.txt 2> /dev/null
 rm -f /root/scanbkscript/$username/ding.txt 2> /dev/null
 rm -f /root/scanbkscript/$username/nex4.txt 2> /dev/null
 rm -f /root/scanbkscript/$username/present.txt 2> /dev/null
 rm -f /root/scanbkscript/$username/malware_new.txt 2> /dev/null
 rm -f /root/scanbkscript/$username/malware_new2.txt 2> /dev/null
+rm -f /root/scanbkscript/$username/malware_new3.txt 2> /dev/null
 #if [ "$mytext4" -gt 100 ];
 #then
 #echo "$mytext3 file exist and has more than 100 malicious files in it. So exiting"
@@ -73,7 +74,7 @@ do
 ll $file 2>/dev/null >> /root/scanbkscript/$username/present.txt
 done
 cat /root/scanbkscript/$username/present.txt
-
+rm -f /root/scanbkscript/$username/present.txt 2> /dev/null
 echo -e " \n"
 echo "#######################################################################################"
 done
@@ -82,4 +83,11 @@ else
 echo "$mytext3 does not exist or there is no malware files specified in $mytext3 file"
 fi
 duration=$SECONDS
-echo "The script took $(($duration / 60)) minutes and $(($duration % 60)) seconds to check the presence of $mytext4 infected file in backup"
+red=`tput setaf 1`
+green=`tput setaf 2`
+echo "The script took${green} $(($duration / 60)) minutes and $(($duration % 60)) ${reset}seconds to check the presence of $mytext4 infected file in backup"
+
+echo "#######################################################################################"
+
+echo "${red}Note: The script only checks if the files listed in malware.txt. So a infected file which is not listed in malware.txt will not be detected by the script${reset}"
+echo "#######################################################################################"
