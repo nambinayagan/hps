@@ -85,7 +85,7 @@ fi
 duration=$SECONDS
 red=`tput setaf 1`
 green=`tput setaf 2`
-echo "The script took${green} $(($duration / 60)) minutes and $(($duration % 60)) seconds${reset} to check the presence of $mytext4 infected file in backup"
+echo "The script took${green} $(($duration / 60)) minutes and $(($duration % 60)) seconds ${reset} to check the presence of $mytext4 infected file in backup"
 
 echo "#######################################################################################"
 
