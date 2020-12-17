@@ -62,4 +62,13 @@ else
 echo "$mytext3 does not exist or there is no malware files specified in $mytext3 file"
 fi
 duration=$SECONDS
-echo "The script took $(($duration / 60)) minutes and $(($duration % 60)) seconds to check the presence of $mytext4 infected file in backup"
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=$(tput sgr0)
+echo "The script took${green} $(($duration / 60)) minutes and $(($duration % 60)) seconds ${reset} to check the presence of $mytext4 infected file in backup"
+
+echo "#######################################################################################"
+
+echo "${red}Note: The script only checks if the files listed in malware.txt. So a infected file which is not listed in malware.txt will not be detected by the script${reset}"
+echo -e "\e[3;4;33m${red}It is always recommended to inform the customer to get their website code checked with a professional website security expert as the same vulnerabilities that were exploited to hack the website might be present in the backup.${reset}\n\e[0m"
+echo "#######################################################################################"
