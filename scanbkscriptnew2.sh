@@ -111,15 +111,15 @@ cd
 else
 echo "$mytext3 does not exist or there is no malware files specified in $mytext3 file"
 fi
-monthlycount=$(expr $( cat /root/scanbkscript/getsewyb/commonfiles.txt | grep "cpbackup/monthly" | wc -l ) - 1)
-weeklycount=$(expr $( cat /root/scanbkscript/getsewyb/commonfiles.txt | grep "cpbackup/weekly" | wc -l ) - 1)
-dailycount=$(expr $( cat /root/scanbkscript/getsewyb/commonfiles.txt | grep "cpbackup/daily" | wc -l ) - 1)
-monthlycount1=$(expr $( cat /root/scanbkscript/getsewyb/identicalfiles.txt | grep "cpbackup/monthly" | wc -l ) - 1)
-weeklycount1=$(expr $( cat /root/scanbkscript/getsewyb/identicalfiles.txt | grep "cpbackup/weekly" | wc -l ) - 1)
-dailycount1=$(expr $( cat /root/scanbkscript/getsewyb/identicalfiles.txt | grep "cpbackup/daily" | wc -l ) - 1)
-monthlycount2=$(expr $( cat /root/scanbkscript/getsewyb/differentfiles.txt | grep "cpbackup/monthly" | wc -l ) - 1)
-weeklycount2=$(expr $( cat /root/scanbkscript/getsewyb/differentfiles.txt | grep "cpbackup/weekly" | wc -l ) - 1)
-dailycount2=$(expr $( cat /root/scanbkscript/getsewyb/differentfiles.txt | grep "cpbackup/daily" | wc -l ) - 1)
+monthlycount=$(expr $( cat /root/scanbkscript/$username/commonfiles.txt | grep "cpbackup/monthly" | wc -l ) - 1)
+weeklycount=$(expr $( cat /root/scanbkscript/$username/commonfiles.txt | grep "cpbackup/weekly" | wc -l ) - 1)
+dailycount=$(expr $( cat /root/scanbkscript/$username/commonfiles.txt | grep "cpbackup/daily" | wc -l ) - 1)
+monthlycount1=$(expr $( cat /root/scanbkscript/$username/identicalfiles.txt | grep "cpbackup/monthly" | wc -l ) - 1)
+weeklycount1=$(expr $( cat /root/scanbkscript/$username/identicalfiles.txt | grep "cpbackup/weekly" | wc -l ) - 1)
+dailycount1=$(expr $( cat /root/scanbkscript/$username/identicalfiles.txt | grep "cpbackup/daily" | wc -l ) - 1)
+monthlycount2=$(expr $( cat /root/scanbkscript/$username/differentfiles.txt | grep "cpbackup/monthly" | wc -l ) - 1)
+weeklycount2=$(expr $( cat /root/scanbkscript/$username/differentfiles.txt | grep "cpbackup/weekly" | wc -l ) - 1)
+dailycount2=$(expr $( cat /root/scanbkscript/$username/differentfiles.txt | grep "cpbackup/daily" | wc -l ) - 1)
 echo -e "\e[3;4;33mScan:\e[0m Completed"
 duration=$SECONDS
 red=`tput setaf 1`
