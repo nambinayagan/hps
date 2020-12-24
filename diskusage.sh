@@ -8,7 +8,6 @@ printf "%*s\n" $(((${#title1}+$COLUMNS)/2)) "$title1"
 COLUMNS=$(tput cols)
 title="Complete Disk usage"
 printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
-#echo -e "#############################################################################"
 title1="###################################################"
 printf "%*s\n" $(((${#title1}+$COLUMNS)/2)) "$title1"
 #echo "Complete disk usage"
@@ -18,8 +17,5 @@ printf "%*s\n" $(((${#title1}+$COLUMNS)/2)) "$title1"
 title2="Disk usage by Mail"
 printf "%*s\n" $(((${#title2}+$COLUMNS)/2)) "$title2"
 printf "%*s\n" $(((${#title1}+$COLUMNS)/2)) "$title1"
-
 du -hac $docroot2/mail  | sort -rh | head -10
 printf "%*s\n" $(((${#title1}+$COLUMNS)/2)) "$title1"
-
-#echo -e "#############################################################################"
