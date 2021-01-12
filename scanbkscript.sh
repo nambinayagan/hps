@@ -1,5 +1,6 @@
 #!/bin/bash
 ###################              Author: Nambinayagan                 ################
+: <<'END_COMMENT'
 SECONDS=0
 echo Enter username of the cPanel account         #Input
 read username
@@ -93,3 +94,10 @@ echo "##########################################################################
 echo "${red}Note: The script only checks if the files listed in malware.txt. So a infected file which is not listed in malware.txt will not be detected by the script${reset}"
 echo -e "\e[3;4;33m${red}It is always recommended to inform the customer to get their website code checked with a professional website security expert as the same vulnerabilities that were exploited to hack the website might be present in the backup.${reset}\n\e[0m"
 echo "#######################################################################################"
+END_COMMENT
+green=`tput setaf 2`
+reset=$(tput sgr0)
+echo -e " \n"
+echo "This script has been added in our eigsh and you can use it as ${green}scanbackup <user> <server>${reset}"
+echo "Please let me know if there is suggestion/bug"
+
