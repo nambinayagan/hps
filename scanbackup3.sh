@@ -16,7 +16,7 @@ echo -e " \n"
 COLUMNS=$(tput cols)
 printf "%${COLUMNS}s" " " | tr " " "*"
 var=$( cat /root/scanbkscript/$user/docroot.txt )
-docurt="${var%/public_html*}"
+docurt="${var%/public_html*}"                              #cat uioutput | awk '/Doc Root/ {print $3} ' | cut -d "/" -f -3
 mytext2="${var%public_html*}malware.txt"                #Malware.txt file location
 echo $mytext2 > /root/scanbkscript/$user/nambi.txt
 mytext3=$( cat /root/scanbkscript/$user/nambi.txt )
@@ -39,7 +39,7 @@ if [ "$mytext4" -gt 0 ];
         echo -e "\e[3;4;33mScan:\e[0m Started"
         #echo -e " \n"
         #printf "%${COLUMNS}s" " " | tr " " "*"
-        cat $mytext2 | awk '{ print $1 }' >> /root/scanbkscript/$user/malware_new.txt
+        cat $mytext2 | awk '{ print $1 }' >> /root/scanbkscript/$user/malware_new.txt            #cat new1 | cut -d "/" -f 4- | cut -d ":" -f 1
         rev /root/scanbkscript/$user/malware_new.txt | cut -c2- |rev >> /root/scanbkscript/$user/malware_new2.txt
         cp /root/scanbkscript/$user/malware_new2.txt /root/scanbkscript/$user/malware_new3.txt
         mytext5=$( cat /root/scanbkscript/$user/malware_new2.txt | grep $user | wc -l )
