@@ -1,3 +1,19 @@
+Most frequently used commands:
+
+ui <domain> <server>	                        displays domain/account information
+dig <domain>
+inodes <server> <path>	                      shows a breakdown of inodes based on a path
+loggrep [search keyword] <httpd|messages|exim|cpanelerror|cpanelaccess|cpanelaccounting|ssh|dovecot|mysql|ftp> <server>	        search from various logs on our servers
+logtail <server|ip|domain> <httpd|messages|exim|cpanelerror|cpanelaccess|cpanelaccounting|ssh|dovecot|mysql|ftp> [search keyword]	tails various error logs. ctrl-c to quit
+scan
+scanlog
+dcbackuplist
+checkautossl
+
+
+
+
+
 clear	                                        clears your screen
 history	                                        displays your recent GatorShell history
 ui <domain> <server>	                        displays domain/account information
