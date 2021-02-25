@@ -1,0 +1,56 @@
+clear	                                        clears your screen
+history	                                        displays your recent GatorShell history
+ui <domain> <server>	                        displays domain/account information
+dig <domain>
+countproc <domain> <server>	                checks current number of processes for a user
+du <domain>	                                displays disk usage and inode usage on a server
+inodes <server> <path>	                        shows a breakdown of inodes based on a path
+quota <domain> <server>	                        check current quota for a user (includes inodes)
+status <service> <server>	                returns the status of a service running on a server
+
+createinfo <domain> <server>	                create a phpinfo page  in the users public_html dir
+
+loggrep [search keyword] <httpd|messages|exim|cpanelerror|cpanelaccess|cpanelaccounting|ssh|dovecot|mysql|ftp> <server>	        search from various logs on our servers
+logtail <server|ip|domain> <httpd|messages|exim|cpanelerror|cpanelaccess|cpanelaccounting|ssh|dovecot|mysql|ftp> [search keyword]	tails various error logs. ctrl-c to quit
+
+secinfo <domain> <server>	                        check a domain for mod_security blocks
+whitelist <domain> <action> <server> <ruleids>  	whitelist a domain for certain mod_security rules
+
+
+dropjail <domain> <server> [port]	        drops into a client’s jailshell (SSH into the customer's account) - server is required when port is specified
+killproc <domain> <server>	                kills all current processes for a user
+permfix <domain> <server>	                resets permissions on public_html and all subfiles/folders for a user
+pwtemp <action> <target> <server> [-d]	        set/remove temp password for a user or e-mail address (Plesk sup- port added: setplesk). -d will permanently reset the password for setuser, setmail, and setwp
+
+
+checkzone <domain> <server>	                tests if there is any errors in a domain’s zonefile
+host <hostname> or <ip>	                        host lookup for IP or hostname
+ping <domain> <numpings>	                pings a domain until ctrl-c’d or until numpings is reached
+rblcheck <ip>	                                checks an IP against RBLs
+viewzone <domain>	                        views a DNS zone file from the server
+checkblacklist <ip>	                        check if an ip is on the exim blacklist
+checkfire
+
+rldomcheck <domain> <server>	                checks whether domain is in localdomains or remotedomains
+scan
+scanlog
+eximparser
+resusage
+forcessl
+hamlookup
+cplogtable
+dupath
+killdns
+
+
+Backup:
+dcbackuplist
+dcbackuprestore
+scanbackup
+
+resetcpanel
+iskilled
+vdetect
+checkautossl
+
+
